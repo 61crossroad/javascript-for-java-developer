@@ -54,3 +54,15 @@ myObject.double();
 console.log("myObject.double(), value = " + myObject.getValue());
 
 // call constructor
+console.log("\n## call constructor");
+
+var Quo = function (string) {
+    this.status = string;
+};
+
+Quo.prototype.get_status = function () {
+    return this.status;
+}
+
+var myQuo = new Quo("confused");
+console.log(myQuo.get_status());
