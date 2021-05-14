@@ -66,3 +66,17 @@ Quo.prototype.get_status = function () {
 
 var myQuo = new Quo("confused");
 console.log(myQuo.get_status());
+
+// call apply
+console.log("\n## call apply");
+
+var array = [3, 4];
+var sum = add.apply(null, array);
+console.log(sum);
+
+var statusObject = {
+    status: 'A-OK'
+};
+
+var status = Quo.prototype.get_status.apply(statusObject);
+console.log(status);
