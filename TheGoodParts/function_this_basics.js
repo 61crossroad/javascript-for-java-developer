@@ -80,3 +80,58 @@ var statusObject = {
 
 var status = Quo.prototype.get_status.apply(statusObject);
 console.log(status);
+
+// arguments
+var sum = function () {
+    var i, sum = 0;
+    for (i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+    }
+    return sum;
+};
+
+console.log(sum(4, 8, 15, 16, 23, 42));
+
+// exceptions
+var addEx = function (a, b) {
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        throw {
+            name: 'TypeError',
+            message: 'add needs numbers'
+        };
+    }
+    return a + b;
+};
+
+var try_it = function () {
+    try {
+        addEx("seven");
+    } catch (e) {
+        console.log(e.name + ': ' + e.message);
+    }
+};
+try_it();
+
+// extends built-in objects
+Function.prototype.method = function (name, func) {
+    this.prototype[name] = func;
+    return this;
+};
+
+Number.method('integer', function () {
+    return Math[this < 0 ? 'ceil' : 'floor'](this);
+});
+console.log((-10 / 3).integer());
+
+String.method('trim', function () {
+    return this.replace(/^\s+|\s+$/g, '');
+})
+console.log('"' + "    neat    ".trim() + '"');
+
+Function.prototype.method = function (name, func) {
+    if (!this.prototype[name]) {
+        this.prototype[name] = func;
+    }
+    return this;
+};
+
