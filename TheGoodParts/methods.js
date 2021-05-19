@@ -89,3 +89,17 @@ Array.prototype.mySplice = function (start, deleteCount) {
     }
     return result;
 };
+
+Function.prototype.myBind = function(thiat) {
+    var method =  this,
+        slice = Array.prototype.slice,
+        args = slice.apply(arguments, [1]);
+    return function () {
+        return method.apply(that, args.concat(slice.apply(arguments, [0])));
+    };
+};
+
+var x = function () {
+    return this.value;
+}.bind({value: 777});
+console.log(x());
