@@ -39,3 +39,6 @@ x.lastIndex = 10;
 console.log(y.lastIndex); // 10? 0....??
 
 console.log("into".match(/in|int/));
+
+
+var doubled_words = /([A-Za-z\u00C0-\u1FFF\u2800-\uFFFD'\-]+)\s+\1/gi;
