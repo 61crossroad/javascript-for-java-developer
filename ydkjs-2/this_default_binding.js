@@ -1,5 +1,11 @@
 function foo() {
-    console.log(this.a);
+    // "use strict"; // TypeError: Cannot read property 'a' of undefined
+    // console.log(this.a);
+    console.log(a);
 }
-a = 2;
-foo();
+var a = 2;
+// foo();
+(function() {
+    "use strict";
+    foo();
+})();
