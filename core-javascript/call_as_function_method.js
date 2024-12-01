@@ -10,3 +10,4 @@ var obj = {
 };
 
 obj.method(2);
+obj['method'](3);
