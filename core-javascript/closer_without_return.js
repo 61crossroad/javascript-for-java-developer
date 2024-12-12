@@ -4,6 +4,7 @@
     var inner = function () {
         if (++a >= 10) {
             clearInterval(intervalId);
+            inner = null;
         }
         console.log(a);
     };
