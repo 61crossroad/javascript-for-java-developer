@@ -8,3 +8,4 @@ var outer = function() {
 var outer2 = outer();
 console.log(outer2());
 console.log(outer2());
+outer = null;
